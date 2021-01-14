@@ -11,7 +11,7 @@ def calcul_t_1(joueur):
     """
         calcul du total de 1 
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     score_t_1 = 0
@@ -22,11 +22,11 @@ def calcul_t_1(joueur):
     return score_t_1
 
 
-def calcul_t_2(joueur):
+def calcul_t_2(Joueur):
     """
         calcul du total de 2 
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     score_t_2 = 0
@@ -36,11 +36,11 @@ def calcul_t_2(joueur):
         i +=1
     return score_t_2
 
-def calcul_t_3(joueur):
+def calcul_t_3(Joueur):
     """
         calcul du total de 3 
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     score_t_3 = 0
@@ -54,7 +54,7 @@ def calcul_t_4(joueur):
     """
         calcul du total de 4 
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     score_t_4 = 0
@@ -64,11 +64,11 @@ def calcul_t_4(joueur):
         i +=1
     return score_t_4
 
-def calcul_t_5(joueur):
+def calcul_t_5(Joueur):
     """
         calcul du total de 5 
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     score_t_5 = 0
@@ -79,11 +79,11 @@ def calcul_t_5(joueur):
     # print(score_t_5)
     return score_t_5
 
-def calcul_t_6(joueur):
+def calcul_t_6(Joueur):
     """
         calcul du total de 6 
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     score_t_6 = 0
@@ -93,21 +93,21 @@ def calcul_t_6(joueur):
         i +=1
     return score_t_6
 
-def total_intermediaire(joueur):
+def total_intermediaire(Joueur):
     """"
         calcul total intermediaire
     """
-    joueur = Joueur()
+    joueur = Joueur
     score_inter = (calcul_t_1(joueur) + calcul_t_2(joueur) + calcul_t_3(joueur)
                   + calcul_t_4(joueur) + calcul_t_5(joueur) + calcul_t_6(joueur))
     print(score_inter)
     return score_inter
 
-def bonus(joueur):
+def bonus(Joueur):
     """"
         attribution bonus
     """
-    joueur = Joueur()
+    joueur = Joueur
     score_inter = total_intermediaire(joueur)
     bonus = 0
     if score_inter > 63:
@@ -115,21 +115,21 @@ def bonus(joueur):
     return bonus
 
 
-def total_sup(joueur):
+def total_sup(Joueur):
     """"
         calcul total partie supérieure
     """
-    joueur = Joueur()
+    joueur = Joueur
     score_inter = total_intermediaire(joueur)
     bonus = bonus(joueur)
     total_sup = score_inter + bonus
     return total_sup
 
-def calcul_brelan(joueur):
+def calcul_brelan(Joueur):
     """"
         calcul score brelan
     """
-    joueur = Joueur()
+    joueur = Joueur
     des_gardes = joueur.des_gardes
     total_brelan = 0
     compte = {}.fromkeys(set(des_gardes),0)
@@ -145,11 +145,11 @@ def calcul_brelan(joueur):
     return total_brelan
 
 
-def calcul_carre(joueur):
+def calcul_carre(Joueur):
     """"
         calcul score carre
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     total_carre = 0
@@ -166,11 +166,11 @@ def calcul_carre(joueur):
     return total_carre
 
 
-def calcul_full(joueur):
+def calcul_full(Joueur):
     """"
         calcul score full
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     total_full = 0
@@ -190,11 +190,11 @@ def calcul_full(joueur):
     return total_full
     
 
-def calcul_p_suite(joueur):
+def calcul_p_suite(Joueur):
     """"
         calcul score petite suite
     """
-    joueur = Joueur()
+    joueur = Joueur
     total_p_suite = 0
     des_gardes = joueur.des_gardes
     des_gardes.sort()
@@ -205,11 +205,11 @@ def calcul_p_suite(joueur):
     return total_p_suite
 
 
-def calcul_g_suite(joueur):
+def calcul_g_suite(Joueur):
     """"
         calcul score grande suite
     """
-    joueur = Joueur()
+    joueur = Joueur
     total_g_suite = 0
     des_gardes = joueur.des_gardes
     des_gardes.sort()
@@ -220,11 +220,11 @@ def calcul_g_suite(joueur):
     return total_g_suite
 
 
-def calcul_yams(joueur):
+def calcul_yams(Joueur):
     """"
         calcul score grande yams
     """
-    joueur = Joueur()
+    joueur = Joueur
     i = 0
     des_gardes = joueur.des_gardes
     total_yams = 0
@@ -241,11 +241,11 @@ def calcul_yams(joueur):
     return total_yams
 
 
-def calcul_chance(joueur):
+def calcul_chance(Joueur):
     """"
         calcul score chance
     """
-    joueur = Joueur()
+    joueur = Joueur
     des_gardes = joueur.des_gardes   
     total_chance = 0
     for de in des_gardes:
@@ -272,4 +272,5 @@ def totaux(Joueur):
 
 # calcul_t_5(Joueur)
 # total_intermediaire(Joueur)
-#calcul_g_suite(Joueur)
+joueur = Joueur()
+calcul_g_suite(joueur)
