@@ -53,7 +53,7 @@ def garder_des(des_array, joueur):
     joueur = Joueur()
     array_des_gardes = joueur.des_gardes
     print(array_des_gardes)
-    nb_des_a_lancer = 5 -len(array_des_gardes)
+    #nb_des_a_lancer = 5 -len(array_des_gardes)
     i =0
     while i < len(des_array):        
         rep_garde_des = input('Voulez vous garder le dés ' + str(i+1) + 
@@ -66,16 +66,31 @@ def garder_des(des_array, joueur):
             i += 1
         else: 
             print('Répondre par oui (o) ou non (n)')
-
-    print("Vous avez choisi de garder les scores suivant : ")
-
+    print("""Vous avez choisi de garder les dés
+          suivant (liste des scores): """)
     joueur.des_gardes = array_des_gardes
     (print(joueur.des_gardes))
 
 
+def nb_des_relancer(joueur):
+    """
+        définir le nb de dès à relancer 
+    """
+    joueur = Joueur()
+    array_des_gardes =joueur.des_gardes
+    print(joueur.des_gardes)
+    nb_des_a_relancer = 5 -len(array_des_gardes)
+    print(nb_des_a_relancer)
+    return nb_des_a_relancer
 
 
-lance_des(5)
-garder_des(lance_des(5), Joueur)
+
+
+
+
+# lance_des(5)
+# garder_des(lance_des(5), Joueur)
+nb_des_relancer(Joueur)
+
 
 #startGame()  

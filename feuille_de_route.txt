@@ -1,27 +1,27 @@
-X # 1 creer les joueurs 
-        # 2 le 1er joueur lance les dé
-        # 3 lire les scores des dés
-        # 4 afficher les scores des dés 
-        # 5 le joueur va choisir les dés qu'il garde
-            # 6 diminuer le nombre de lancer de dé restant
-            # 7 compter les nombre dés à relancer 
-            # 8 relancer les dé à relancer
-            # 9 le joueur va choisir les dés qu'il garde
-            # 10 diminuer le nombre de lancer de dé restant
-            # 11 diminuer le nombre de lancer de dé restant
-            # 12 compter les nombre dés à relancer 
-            # 13 relancer les dé à relancer
-            # 14 le joueur va choisir les dés qu'il garde
-            # 15 diminuer le nombre de lancer de dé restant
-            # 16 quand nombre de lancer  = 0 selectionner les dés restants
-        # 6 lorsque 6 dés ont été selectionné afficher les scores de tous les dés
-        # 7 Afficher le grille de résultats
-        # 8 le joueur selectionne la case qu'il veux remplir
-            # verifier si la case séléctionnée est accessible
-            # proposer de remplir avec une croix ou un score
-                # en cas de score verifier que c'est possible
-        # 9 calculer le score corespondant a la case
-        # 10 remplir la case
-        # 11 diminuer le nombre de jeux restants
-            # si le nombre de jeu du joueur est = 0 calculer le score final
-        # 12 passer au 2e joueur
+X   # 1 creer les joueurs 
+        X   # 2 le 1er joueur lance les dé
+        X   # 3 lire les scores des dés
+        X   # 4 afficher les scores des dés 
+        X   # 5 le joueur va choisir les dés qu'il garde
+                # 6 diminuer le nombre de lancer de dé restant 
+            X    # 7 compter les nombre dés à relancer 
+            X    # 8 relancer les dé à relancer
+            X    # 9 le joueur va choisir les dés qu'il garde
+                # 10 diminuer le nombre de lancer de dé restant
+                # 11 diminuer le nombre de lancer de dé restant
+            X    # 12 compter les nombre dés à relancer 
+            X    # 13 relancer les dé à relancer
+            X    # 14 le joueur va choisir les dés qu'il garde
+                # 15 diminuer le nombre de lancer de dé restant
+                # 16 quand nombre de lancer  = 0 selectionner les dés restants
+            # 6 lorsque 5 dés ont été selectionnés afficher les scores de tous les dés
+            # 7 Afficher la grille de résultats
+            # 8 le joueur selectionne la case qu'il veux remplir
+                # verifier si la case séléctionnée est accessible
+                # proposer de remplir avec une croix ou un score
+                    # en cas de score verifier que c'est possible
+            # 9 calculer le score corespondant a la case
+            # 10 remplir la case
+            # 11 diminuer le nombre de jeux restants
+                # si le nombre de jeu du joueur est = 0 calculer le score final
+            # 12 passer au 2e joueur
