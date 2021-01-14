@@ -3,19 +3,19 @@
   V      # 3 lire les scores des dés
   V      # 4 afficher les scores des dés et les affecter a un joueur 
   V      # 5 le joueur va choisir les dés qu'il garde
-            # 6 diminuer le nombre de lancer de dé restant
-            # 7 compter les nombre dés à relancer 
-            # 8 relancer les dé à relancer
-            # 9 le joueur va choisir les dés qu'il garde
-            # 10 diminuer le nombre de lancer de dé restant
-            # 11 diminuer le nombre de lancer de dé restant
-            # 12 compter les nombre dés à relancer 
-            # 13 relancer les dé à relancer
-            # 14 le joueur va choisir les dés qu'il garde
-            # 15 diminuer le nombre de lancer de dé restant
-            # 16 quand nombre de lancer  = 0 selectionner les dés restants
-        # 6 lorsque 6 dés ont été selectionné afficher les scores de tous les dés
-        # 7 Afficher le grille de résultats
+    V        # 6 diminuer le nombre de lancer de dé restant
+    V        # 7 compter les nombre dés à relancer 
+    V        # 8 relancer les dé à relancer
+    V        # 9 le joueur va choisir les dés qu'il garde
+    V        # 10 diminuer le nombre de lancer de dé restant
+    V        # 11 diminuer le nombre de lancer de dé restant
+    V        # 12 compter les nombre dés à relancer 
+    V        # 13 relancer les dé à relancer
+    V        # 14 le joueur va choisir les dés qu'il garde
+    V        # 15 diminuer le nombre de lancer de dé restant
+    V        # 16 quand nombre de lancer  = 0 selectionner les dés restants
+  V      # 6 lorsque 5 dés ont été selectionné afficher les scores de tous les dés
+  V      # 7 Afficher le grille de résultats
         # 8 le joueur selectionne la case qu'il veux remplir
             # verifier si la case séléctionnée est accessible
             # proposer de remplir avec une croix ou un score
