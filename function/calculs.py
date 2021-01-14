@@ -179,13 +179,14 @@ def calcul_full(joueur):
         compte[valeur] += 1
     print(compte)
     for key, value in compte.items():
-        print(key , " ", value)
+        # print(key , " ", value)
         # print(compte.values())
-        if len(compte) > 2:
+        if len(compte) != 2:
             total_full = 0
-        if value == 3 and 2:
-            total_full = 25
-            print(total_full)
+        else : 
+            if value == 3 or value == 2:
+                total_full = 25
+        # print(total_full)
     return total_full
     
 
@@ -194,8 +195,14 @@ def calcul_p_suite(joueur):
         calcul score petite suite
     """
     joueur = Joueur()
-    i = 0
+    total_p_suite = 0
     des_gardes = joueur.des_gardes
+    des_gardes.sort()
+    print(des_gardes)
+    if des_gardes == [1,2,3,4,5]:
+        total_p_suite = 30
+    print(total_p_suite)
+    return total_p_suite
 
 
 def calcul_g_suite(joueur):
@@ -203,8 +210,15 @@ def calcul_g_suite(joueur):
         calcul score grande suite
     """
     joueur = Joueur()
-    i = 0
-    des_gardes = joueur.des_gardes 
+    total_g_suite = 0
+    des_gardes = joueur.des_gardes
+    des_gardes.sort()
+    print(des_gardes)
+    if des_gardes == [2,3,4,5,6]:
+        total_g_suite = 40
+    print(total_g_suite)
+    return total_g_suite
+
 
 def calcul_yams(joueur):
     """"
@@ -239,7 +253,23 @@ def calcul_chance(joueur):
         print(total_chance)
     return total_chance
 
+def total_inf(Joueur):
+    """"
+        calcul total partie inférieure
+    """
+    total_inf = (calcul_chance(joueur) + calcul_yams(joueur) + calcul_g_suite(joueur) +
+                 calcul_brelan(joueur) + calcul_carre(joueur) + calcul_p_suite(joueur)
+                 + calcul_full(joueur))
+    return total_inf 
+
+
+def totaux(Joueur):
+    """"
+        calcul total du score final
+    """
+    totaux = total_inf(joueur) + total_sup(joueur) 
+    return totaux      
 
 # calcul_t_5(Joueur)
 # total_intermediaire(Joueur)
-calcul_full(Joueur)
+#calcul_g_suite(Joueur)
