@@ -159,24 +159,55 @@ def calcul_chance(Joueur):
 
 
 def calcul_full(Joueur):
-    """ calcul score chance """
+    """ calcul score full """
     joujou = Joueur
     total_full = 0
     compte = {}.fromkeys(set(joujou.de_garde),0)
     for valeur in joujou.de_garde: 
         compte[valeur] += 1
-    print(compte)
-    for key, value in compte.items():
+    if len(compte) != 2:
+        total_full = 0
+    else:
+        for key, value in compte.items():
             print(key , " ", value)
-            if value >= 3:
-                total_brelan = key*3
-                print(total_brelan)
+            if value == 2 or value == 3:
+                total_full = 25
+    print(total_full)
     return total_full
+                
 
+def calcul_ptt_suite(Joueur):
+    """ calcul score petite suite """
+    joujou = Joueur
+    total_ptt_suite = 0
+    suite = joujou.de_garde
+    suite.sort()
+    if suite == [1,2,3,4,5]:
+        total_ptt_suite = 30
+    return total_ptt_suite
 
+def calcul_gd_suite(Joueur):
+    """ calcul score gde suite """
+    joujou = Joueur
+    total_gd_suite = 0
+    suite = joujou.de_garde
+    suite.sort()
+    if suite == [2,3,4,5,6]:
+        total_gd_suite = 40
+    return total_gd_suite
 
+def calcul_total_2(Joueur):
+    """ calcul 2e sous total """
+    joujou = Joueur
+    total_2 = calcul_brelan(joujou) + calcul_carre(joujou) 
+    + calcul_full(joujou) + calcul_ptt_suite(joujou) 
+    + calcul_gd_suite(joujou) + calcul_yams(joujou) + calcul_chance(joujou)
+    return total_2
 
-joujou=Joueur()
-calcul_full(joujou)
+def calcul_total_glob(Joueur):
+    """ calcul score global """
+    joujou = Joueur
+    total_glob = calcul_total_1(joujou) + calcul_total_2(joujou)
+    return total_glob
 
 

@@ -23,6 +23,7 @@ def debut_jeu():
             joueur_array.append(j)
             # print(joueur_array[i].nom)
             i += 1
+    return joueur_array
 
 def lancer_de(nb_de):
     """ simule un lancé de dé"""
@@ -56,6 +57,7 @@ def garder_de(de_array,Joueur):
     joujou.de_garde = de_garde_array
     print("Vous avez garde :")
     print(joujou.de_garde)
+    return joujou.de_garde
 
 
 def nb_de_lancer(Joueur):
@@ -67,26 +69,41 @@ def nb_de_lancer(Joueur):
 def grille_resultat(Joueur):
     """affiche la gille de résultat"""
     joujou = Joueur
-    print(joujou.fiche.t_de_1[0],"score : ",joujou.fiche.t_de_1[1])
-    print(joujou.fiche.t_de_2[0],"score : ",joujou.fiche.t_de_2[1])
-    print(joujou.fiche.t_de_3[0],"score : ",joujou.fiche.t_de_3[1])
-    print(joujou.fiche.t_de_4[0],"score : ",joujou.fiche.t_de_4[1])
-    print(joujou.fiche.t_de_5[0],"score : ",joujou.fiche.t_de_5[1])
-    print(joujou.fiche.t_de_6[0],"score : ",joujou.fiche.t_de_6[1])
-    print(joujou.fiche.t_inter[0],"score : ",joujou.fiche.t_inter[1])
-    print(joujou.fiche.bonus[0],"score : ",joujou.fiche.bonus[1])
-    print(joujou.fiche.total_1[0]," : ",joujou.fiche.total_1[1])
-    print(joujou.fiche.brelan[0],"score : ",joujou.fiche.brelan[1])
-    print(joujou.fiche.carre[0],"score : ",joujou.fiche.carre[1])
-    print(joujou.fiche.full[0],"score : ",joujou.fiche.full[1])
-    print(joujou.fiche.ptt_suite[0],"score : ",joujou.fiche.ptt_suite[1])
-    print(joujou.fiche.gd_suite[0],"score : ",joujou.fiche.gd_suite[1])
-    print(joujou.fiche.yams[0],"score : ",joujou.fiche.yams[1])
-    print(joujou.fiche.chance[0],"score : ",joujou.fiche.chance[1])
-    print(joujou.fiche.total_2[0]," : ",joujou.fiche.total_2[1])
-    print(joujou.fiche.total_glob[0]," : ",joujou.fiche.total_glob[1])
+    print("Choix n°",joujou.fiche.t_de_1[0]," ",joujou.fiche.t_de_1[1],"score : ",joujou.fiche.t_de_1[2])
+    print("Choix n°",joujou.fiche.t_de_2[0]," ",joujou.fiche.t_de_2[1],"score : ",joujou.fiche.t_de_2[2])
+    print("Choix n°",joujou.fiche.t_de_3[0]," ",joujou.fiche.t_de_3[1],"score : ",joujou.fiche.t_de_3[2])
+    print("Choix n°",joujou.fiche.t_de_4[0]," ",joujou.fiche.t_de_4[1],"score : ",joujou.fiche.t_de_4[2])
+    print("Choix n°",joujou.fiche.t_de_5[0]," ",joujou.fiche.t_de_5[1],"score : ",joujou.fiche.t_de_5[2])
+    print("Choix n°",joujou.fiche.t_de_6[0]," ",joujou.fiche.t_de_6[1],"score : ",joujou.fiche.t_de_6[2])
+    print(joujou.fiche.t_inter[1],"score : ",joujou.fiche.t_inter[2])
+    print(joujou.fiche.bonus[1],"score : ",joujou.fiche.bonus[2])
+    print(joujou.fiche.total_1[1]," : ",joujou.fiche.total_1[2])
+    print("Choix n°",joujou.fiche.brelan[0]," ",joujou.fiche.brelan[1],"score : ",joujou.fiche.brelan[2])
+    print("Choix n°",joujou.fiche.carre[0]," ",joujou.fiche.carre[1],"score : ",joujou.fiche.carre[2])
+    print("Choix n°",joujou.fiche.full[0]," ",joujou.fiche.full[1],"score : ",joujou.fiche.full[2])
+    print("Choix n°",joujou.fiche.ptt_suite[0]," ",joujou.fiche.ptt_suite[1],"score : ",joujou.fiche.ptt_suite[2])
+    print("Choix n°",joujou.fiche.gd_suite[0]," ",joujou.fiche.gd_suite[1],"score : ",joujou.fiche.gd_suite[2])
+    print("Choix n°",joujou.fiche.yams[0]," ",joujou.fiche.yams[1],"score : ",joujou.fiche.yams[2])
+    print("Choix n°",joujou.fiche.chance[0]," ",joujou.fiche.chance[1],"score : ",joujou.fiche.chance[2])
+    print(joujou.fiche.total_2[1]," : ",joujou.fiche.total_2[2])
+    print(joujou.fiche.total_glob[1]," : ",joujou.fiche.total_glob[2])
 
+def selection_case(Joueur):
+    """ le joueur selectione la case a remplir"""
+    joujou = Joueur
+    case = 0
+    case = input("quelle case voulez vous remplir ?")
+    while case not in ('1','2','3','4','5','6','7','8','9','10','11','12','13'):
+        case = input("veuillez entrer un choix valide, quelle case voulez vous remplir ?")
+    
+    for i in joujou.fiche.iter_attributes():
+        if i[1][0] == int(case) and i[1][3] == True:
+            i[1][3] = False
+            break
+        else:
+            case = input("la case n'est pas disponible, quelle case voulez vous remplir ?")
 
 
 
 joujou = Joueur()
+selection_case(joujou)

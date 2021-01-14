@@ -4,7 +4,7 @@ class Joueur:
         self.nom = "joueur" #a definir
         self.score = 0
         self.nombrejeu = 12
-        self.de_garde = [4,5,5,5,4]
+        self.de_garde = []
         self.fiche = Ficheresultat()
         
         
