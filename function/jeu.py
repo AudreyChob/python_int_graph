@@ -5,6 +5,7 @@ from joueur import Joueur
 from de import De
 from ficheresultat import Ficheresultat
 from random import randint
+from calcul import *
 
 
 def debut_jeu():
@@ -21,7 +22,6 @@ def debut_jeu():
             j = Joueur()
             j.nom = input("comment s'appelle le joueur :")
             joueur_array.append(j)
-            # print(joueur_array[i].nom)
             i += 1
     return joueur_array
 
@@ -38,22 +38,27 @@ def lancer_de(nb_de):
         d += 1
     return de_array
 
-def garder_de(de_array,Joueur):
+def garder_de(de_array,Joueur,nb_relance):
     """permet de choisir le dé que l'on va conserver"""
     joujou = Joueur
     i = 0
-    de_garde_array = joujou.de_garde
-    while i < len(de_array):
-        rep_gard_de = input("voulez vous garder le dé " + str(de_array[i].nom) + " avec un score de : " + str(de_array[i].score) + " ? o/n ")
-        if rep_gard_de == "o":
-            de_garde_array.append(de_array[i].score) 
-            print("cool, suivant")
+    de_garde_array = joujou.de_garde 
+    if nb_relance == 1:
+        while i < len(de_array):
+            de_garde_array.append(de_array[i].score)
             i += 1
-        elif rep_gard_de == "n":
-            print("pas cool, next")
-            i += 1
-        else:
-            print("PUT** c est OUI ou c est NON ????") 
+    else:
+        while i < len(de_array):
+            rep_gard_de = input("voulez vous garder le dé " + str(de_array[i].nom) + " avec un score de : " + str(de_array[i].score) + " ? o/n ")
+            if rep_gard_de == "o":
+                de_garde_array.append(de_array[i].score) 
+                print("cool, suivant")
+                i += 1
+            elif rep_gard_de == "n":
+                print("pas cool, next")
+                i += 1
+            else:
+                print("PUT** c est OUI ou c est NON ????") 
     joujou.de_garde = de_garde_array
     print("Vous avez garde :")
     print(joujou.de_garde)
@@ -91,19 +96,59 @@ def grille_resultat(Joueur):
 def selection_case(Joueur):
     """ le joueur selectione la case a remplir"""
     joujou = Joueur
+    score = 0
     case = 0
-    case = input("quelle case voulez vous remplir ?")
-    while case not in ('1','2','3','4','5','6','7','8','9','10','11','12','13'):
-        case = input("veuillez entrer un choix valide, quelle case voulez vous remplir ?")
-    
-    for i in joujou.fiche.iter_attributes():
-        if i[1][0] == int(case) and i[1][3] == True:
-            i[1][3] = False
-            break
+    boul = False
+    dispo = True
+    while boul == False:
+        if dispo == False:
+            case = input("La case n'est pas disponible, quelle case voulez vous remplir ?")
         else:
-            case = input("la case n'est pas disponible, quelle case voulez vous remplir ?")
+            case = input("quelle case voulez vous remplir ?")
+        while case not in ('1','2','3','4','5','6','7','8','9','10','11','12','13'):
+            case = input("veuillez entrer un choix valide, quelle case voulez vous remplir ?")
+        for i in joujou.fiche.iter_attributes():
+            if i[1][0] == int(case) and i[1][3] == True:
+                i[1][3] = False
+                boul = True
+                score  = choix_calcul(joujou,i[1][0])
+                i[1][2] = score
+                break
+            dispo = False
 
 
+def choix_calcul(Joueur,case):
+    """ choix fonction calcul a utiliser """
+    resultat = 0
+    joujou = Joueur
+    if case == 1: resultat = calcul_total_de_1(joujou)
+    elif case == 2:resultat = calcul_total_de_2(joujou)
+    elif case == 3:resultat = calcul_total_de_3(joujou)
+    elif case == 4:resultat = calcul_total_de_4(joujou)
+    elif case == 5:resultat = calcul_total_de_5(joujou)
+    elif case == 6:resultat = calcul_total_de_6(joujou)
+    elif case == 7:resultat = calcul_brelan(joujou)
+    elif case == 8:resultat = calcul_carre(joujou)
+    elif case == 9:resultat = calcul_full(joujou)
+    elif case == 10:resultat = calcul_ptt_suite(joujou)
+    elif case == 11:resultat = calcul_gd_suite(joujou)
+    elif case == 12:resultat = calcul_yams(joujou)
+    elif case == 13:resultat = calcul_chance(joujou)
+    return resultat
 
-joujou = Joueur()
-selection_case(joujou)
+
+def calcul_total(Joueur):
+    """ calcul des totals la fiche de score """
+    joujou = Joueur
+    jou_f = joujou.fiche
+    jou_f.t_inter[2] = calcul_t_inter(joujou)
+    jou_f.bonus[2] = calcul_bonus(joujou)
+    jou_f.total_1[2] = calcul_total_1(joujou)
+    jou_f.total_2[2] = calcul_total_2(joujou)
+    jou_f.total_glob[2] = calcul_total_glob(joujou)
+
+
+# joujou = Joueur()
+# selection_case(joujou)
+# calcul_total(joujou)
+# grille_resultat(joujou)

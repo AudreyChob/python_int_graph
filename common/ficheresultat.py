@@ -1,6 +1,6 @@
 class Ficheresultat:
     def __init__(self):
-        self.t_de_1 = [1,"Total de 1",0,False]
+        self.t_de_1 = [1,"Total de 1",0,True]
         self.t_de_2 = [2,"Total de 2",0,True]
         self.t_de_3 = [3,"Total de 3",0,True]
         self.t_de_4 = [4,"Total de 4",0,True]

@@ -12,7 +12,7 @@ def calcul_total_de_1(Joueur):
     joujou = Joueur
     tot1 = 0
     while i < len(joujou.de_garde):
-        if joujou.de_garde == 1:
+        if joujou.de_garde[i] == 1:
             tot1 += 1
         i += 1
     return tot1
@@ -23,7 +23,7 @@ def calcul_total_de_2(Joueur):
     joujou = Joueur
     tot2 = 0
     while i < len(joujou.de_garde):
-        if joujou.de_garde == 2:
+        if joujou.de_garde[i] == 2:
             tot2 += 2
         i += 1
     return tot2
@@ -34,7 +34,7 @@ def calcul_total_de_3(Joueur):
     joujou = Joueur
     tot3 = 0
     while i < len(joujou.de_garde):
-        if joujou.de_garde == 3:
+        if joujou.de_garde[i] == 3:
             tot3 += 3
         i += 1
     return tot3
@@ -45,7 +45,7 @@ def calcul_total_de_4(Joueur):
     joujou = Joueur
     tot4 = 0
     while i < len(joujou.de_garde):
-        if joujou.de_garde == 4:
+        if joujou.de_garde[i] == 4:
             tot4 += 4
         i += 1
     return tot4
@@ -56,7 +56,7 @@ def calcul_total_de_5(Joueur):
     joujou = Joueur
     tot5 = 0
     while i < len(joujou.de_garde):
-        if joujou.de_garde == 5:
+        if joujou.de_garde[i] == 5:
             tot5 += 5
         i += 1
     return tot5
@@ -67,24 +67,24 @@ def calcul_total_de_6(Joueur):
     joujou = Joueur
     tot6 = 0
     while i < len(joujou.de_garde):
-        if joujou.de_garde == 6:
-            tot6 += 1
-        i += 6
+        if joujou.de_garde[i] == 6:
+            tot6 += 6
+        i += 1
     return tot6
 
 
 def calcul_t_inter(Joueur):
     """ calcul score total intermediaire """
     joujou = Joueur
-    t_inter = calcul_total_de_1(joujou)+calcul_total_de_2(joujou)
-    +calcul_total_de_3(joujou)+calcul_total_de_4(joujou)
-    +calcul_total_de_5(joujou)+calcul_total_de_6(joujou)
+    t_inter = (joujou.fiche.t_de_1[2] + joujou.fiche.t_de_2[2] 
+    + joujou.fiche.t_de_3[2] + joujou.fiche.t_de_4[2] +
+    joujou.fiche.t_de_5[2] + joujou.fiche.t_de_6[2])
     return t_inter
 
 def calcul_bonus(Joueur):
-    """ calcul bonnus en cas de scor interm > 63 """
+    """ calcul bonnus en cas de score interm > 63 """
     joujou = Joueur
-    t_inter = calcul_t_inter(joujou)
+    t_inter = joujou.fiche.t_inter[2]
     bonus = 0
     if t_inter > 63:
         bonus = 35
@@ -93,8 +93,8 @@ def calcul_bonus(Joueur):
 def calcul_total_1(Joueur):
     """ calcul 1er sous total """
     joujou = Joueur
-    t_inter = calcul_t_inter(joujou)
-    bonus = calcul_bonus(joujou)
+    t_inter = joujou.fiche.t_inter[2]
+    bonus = joujou.fiche.bonus[2]
     total_1 = t_inter + bonus
     return total_1
     
@@ -107,12 +107,9 @@ def calcul_brelan(Joueur):
     compte = {}.fromkeys(set(joujou.de_garde),0)
     for valeur in joujou.de_garde: 
         compte[valeur] += 1
-    print(compte)
     for key, value in compte.items():
-            print(key , " ", value)
             if value >= 3:
                 total_brelan = key*3
-                print(total_brelan)
     return total_brelan
 
 
@@ -124,12 +121,9 @@ def calcul_carre(Joueur):
     compte = {}.fromkeys(set(joujou.de_garde),0)
     for valeur in joujou.de_garde: 
         compte[valeur] += 1
-    print(compte)
     for key, value in compte.items():
-            print(key , " ", value)
             if value >= 4:
-                total_carre = key*3
-                print(total_carre)
+                total_carre = key*4
     return total_carre
 
 def calcul_yams(Joueur):
@@ -139,12 +133,9 @@ def calcul_yams(Joueur):
     compte = {}.fromkeys(set(joujou.de_garde),0)
     for valeur in joujou.de_garde: 
         compte[valeur] += 1
-    print(compte)
     for key, value in compte.items():
-            print(key , " ", value)
             if value >= 5:
-                total_yams = key*3
-                print(total_yams)
+                total_yams = 50
     return total_yams
 
 
@@ -169,10 +160,8 @@ def calcul_full(Joueur):
         total_full = 0
     else:
         for key, value in compte.items():
-            print(key , " ", value)
             if value == 2 or value == 3:
                 total_full = 25
-    print(total_full)
     return total_full
                 
 
@@ -199,15 +188,15 @@ def calcul_gd_suite(Joueur):
 def calcul_total_2(Joueur):
     """ calcul 2e sous total """
     joujou = Joueur
-    total_2 = calcul_brelan(joujou) + calcul_carre(joujou) 
-    + calcul_full(joujou) + calcul_ptt_suite(joujou) 
-    + calcul_gd_suite(joujou) + calcul_yams(joujou) + calcul_chance(joujou)
+    total_2 = (joujou.fiche.brelan[2] + joujou.fiche.carre[2] 
+    + joujou.fiche.full[2] + joujou.fiche.yams[2] +
+    joujou.fiche.ptt_suite[2] + joujou.fiche.gd_suite[2])
     return total_2
 
 def calcul_total_glob(Joueur):
     """ calcul score global """
     joujou = Joueur
-    total_glob = calcul_total_1(joujou) + calcul_total_2(joujou)
+    total_glob = (joujou.fiche.total_1[2] + joujou.fiche.total_2[2])
     return total_glob
 
 
