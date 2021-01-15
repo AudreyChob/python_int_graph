@@ -22,6 +22,7 @@
     V            # en cas de score verifier que c'est possible
   V      # 9 calculer le score corespondant a la case
   V      # 10 remplir la case
-        # 11 diminuer le nombre de jeux restants
-            # si le nombre de jeu du joueur est = 0 calculer le score final
-        # 12 passer au 2e joueur
+  V      # 11 diminuer le nombre de jeux restants
+  V          # si le nombre de jeu du joueur est = 0 calculer le score final
+  V      # 12 passer au 2e joueur
+  V      # 13 décider du vainqueur

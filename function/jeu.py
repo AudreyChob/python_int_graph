@@ -147,8 +147,13 @@ def calcul_total(Joueur):
     jou_f.total_2[2] = calcul_total_2(joujou)
     jou_f.total_glob[2] = calcul_total_glob(joujou)
 
-
-# joujou = Joueur()
-# selection_case(joujou)
-# calcul_total(joujou)
-# grille_resultat(joujou)
+def vainqueur(joueur_array):
+    """ désigne le vainqueur """
+    score = {}
+    for j in joueur_array:
+        total_joueur = j.fiche.total_glob[2]
+        score[j.nom] = total_joueur
+    score_max = max(score.values())
+    for v in sorted(score.items()):
+        if v[1] == score_max:
+            print("Le gagnat est : ",v[0])
