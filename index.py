@@ -13,9 +13,9 @@ from game import *
 
 joueur_array = start_game()
 print("Que les joueurs entrent dans la reine !!")
-nb_jeu = 12
-fin_de_partie = False
+nb_jeu = 2
 while nb_jeu > 0:
+    print("nbJEu", nb_jeu)
     for j in joueur_array:  
         print(j.nom)
         nb_relance = 3
@@ -31,7 +31,9 @@ while nb_jeu > 0:
         selection_case(j)
         calcul_totals(j)
         j.des_gardes = []
-        nb_jeu -= 1
-    fin_de_partie = True
-    
+    nb_jeu -= 1
+    print("nb jeu restant", nb_jeu)
+vainqueur(joueur_array)
+
+
 

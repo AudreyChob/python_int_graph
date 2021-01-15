@@ -206,7 +206,15 @@ def vainqueur(joueur_array):
     """
         Definir le vainqueur de la partie
     """
-    
+    score = {}
+    for j in joueur_array:
+        total_du_j = j.fiche.totaux[2]
+        score[j.nom] = total_du_j 
+        print(score)
+    score_max = max(score.values())
+    for v in sorted(score.items()):
+        if v[1] == score_max:
+            print("Le joueur", v[0], "gagne la partie (score : ", v[1], "!!!)")
 
 # joueur= Joueur()
 #start_game()  

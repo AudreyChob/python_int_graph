@@ -25,3 +25,4 @@ X   # 1 creer les joueurs
         X    # 11 diminuer le nombre de jeux restants
             X    # si le nombre de jeu du joueur est = 0 calculer le score final
         X    # 12 passer au 2e joueur
+        X    # 13 Afficher le vainqueur
