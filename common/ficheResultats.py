@@ -1,7 +1,7 @@
 class FicheResultats: 
     
     def __init__(self):
-        self.t_1 = [1,'total 1',0, False]
+        self.t_1 = [1,'total 1',0, True]
         self.t_2 = [2,'total 2',0, True]
         self.t_3 = [3,'total 3',0, True]
         self.t_4 = [4,'total 4',0, True]
